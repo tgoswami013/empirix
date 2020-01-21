@@ -7,6 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,6 +35,12 @@ public class TestBase
 	public static String environment;
 	public static String url;
 	public static WebDriver driver;
+    public static Logger LOGGER;
+    
+    public TestBase()
+    {
+    	LOGGER = Logger.getLogger(this.getClass().getName());
+    }
 	
 	/**
 	 * This will set Driver based on capabilities and configuration
@@ -46,6 +57,31 @@ public class TestBase
 		
 		System.out.println(server+browser+environment+url);
 		
+		 Handler consoleHandler = null;
+	     Handler fileHandler  = null;
+	    try
+	    {
+	    	consoleHandler = new ConsoleHandler();
+	        fileHandler  = new FileHandler("./empirix.log");
+	             
+	        LOGGER.addHandler(consoleHandler);
+	        LOGGER.addHandler(fileHandler);
+	             
+	        consoleHandler.setLevel(Level.ALL);
+	        fileHandler.setLevel(Level.ALL);
+	        LOGGER.setLevel(Level.ALL);
+	             
+	        LOGGER.config("Configuration done.");
+	             
+	        LOGGER.removeHandler(consoleHandler);
+	             
+	        LOGGER.log(Level.FINE, "Logger Started");
+	    } 
+	    catch(IOException exception)
+	    {
+	            LOGGER.log(Level.SEVERE, "Error occur in FileHandler.", exception);
+	    }
+	        
 		if(browser.equals("Firefox")) 
 		{
 			if(server.equals("Windows"))
@@ -70,6 +106,7 @@ public class TestBase
           
 	        ChromeOptions options = new ChromeOptions(); 
 	        driver = new ChromeDriver(options);
+	        LOGGER.log(Level.FINE, "Browser Open");
 		}
 		
 		
@@ -79,6 +116,7 @@ public class TestBase
 			System.setProperty("webdriver.chrome.driver", Constants.MAC_CHROME_DRIVER);
 		}
 		driver.get(url);
+		LOGGER.info("Logger Name: "+LOGGER.getName());
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().maximize();	
 	}
@@ -95,7 +133,7 @@ public class TestBase
 		{
 			try 
 			{					
-				ConfigUtil.loadProperty(); 			
+				ConfigUtil.loadProperty(); 		
 			} 
 			catch (IOException e) 
 			{
@@ -115,6 +153,8 @@ public class TestBase
 	{
 		TestBase base = new TestBase();
 		base.Initialize();
+		LOGGER.log(Level.FINE, "File Intialized");
 		base.setDriver();
+		LOGGER.log(Level.FINE, "Driver Set");
 	}
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-01-21T17:13:40.825610Z</date>
+  <millis>1579626820825</millis>
+  <nanos>610000</nanos>
+  <sequence>0</sequence>
+  <logger>com.empirix.cloud.helper.TestBase</logger>
+  <level>CONFIG</level>
+  <class>com.empirix.cloud.helper.TestBase</class>
+  <method>setDriver</method>
+  <thread>1</thread>
+  <message>Configuration done.</message>
+</record>
+<record>
+  <date>2020-01-21T17:13:40.855496Z</date>
+  <millis>1579626820855</millis>
+  <nanos>496000</nanos>
+  <sequence>1</sequence>
+  <logger>com.empirix.cloud.helper.TestBase</logger>
+  <level>FINE</level>
+  <class>com.empirix.cloud.helper.TestBase</class>
+  <method>setDriver</method>
+  <thread>1</thread>
+  <message>Logger Started</message>
+</record>
+<record>
+  <date>2020-01-21T17:13:42.558235Z</date>
+  <millis>1579626822558</millis>
+  <nanos>235000</nanos>
+  <sequence>3</sequence>
+  <logger>com.empirix.cloud.helper.TestBase</logger>
+  <level>FINE</level>
+  <class>com.empirix.cloud.helper.TestBase</class>
+  <method>setDriver</method>
+  <thread>1</thread>
+  <message>Browser Open</message>
+</record>
+<record>
+  <date>2020-01-21T17:14:13.385418Z</date>
+  <millis>1579626853385</millis>
+  <nanos>418000</nanos>
+  <sequence>4</sequence>
+  <logger>com.empirix.cloud.helper.TestBase</logger>
+  <level>INFO</level>
+  <class>com.empirix.cloud.helper.TestBase</class>
+  <method>setDriver</method>
+  <thread>1</thread>
+  <message>Logger Name: com.empirix.cloud.helper.TestBase</message>
+</record>
+<record>
+  <date>2020-01-21T17:14:13.643970Z</date>
+  <millis>1579626853643</millis>
+  <nanos>970000</nanos>
+  <sequence>5</sequence>
+  <logger>com.empirix.cloud.helper.TestBase</logger>
+  <level>FINE</level>
+  <class>com.empirix.cloud.helper.TestBase</class>
+  <method>befo</method>
+  <thread>1</thread>
+  <message>Driver Set</message>
+</record>
+</log>
