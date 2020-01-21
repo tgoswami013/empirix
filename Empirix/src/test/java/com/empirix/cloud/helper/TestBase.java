@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestContext;
@@ -111,7 +112,13 @@ public class TestBase
 		
 		if(browser.equals("Edge")) 
 		{
-			System.setProperty("webdriver.chrome.driver", Constants.MAC_CHROME_DRIVER);
+			if(server.equals("Windows"))
+				System.setProperty("webdriver.edge.driver", Constants.WINDOWS_EDGE_DRIVER);
+			else if(server.equals("Mac"))
+				System.setProperty("webdriver.edge.driver", Constants.MAC_EDGE_DRIVER);
+			
+			driver = new EdgeDriver();
+			
 		}
 		
 		driver.get(url);

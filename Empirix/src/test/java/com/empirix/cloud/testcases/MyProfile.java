@@ -30,12 +30,17 @@ public class MyProfile extends TestBase
 	}
 	
 	@Test
-	public void switchLanguage() throws InterruptedException
+	public void switchLanguage()
 	{		
-		LOGGER.log(Level.FINE, "Test Logger");
 		heaMod.switchLanguage("Japanese");
-		LOGGER.log(Level.FINE, "Switched to Japanese");
 		heaMod.switchLanguage("English");
-		LOGGER.log(Level.FINE, "Switched to English");
+	}
+	
+	@Test
+	public void userTabs()
+	{		
+		heaMod.menuList();
+		heaMod.switchLanguage("Japanese");
+		heaMod.menuList();
 	}
 }

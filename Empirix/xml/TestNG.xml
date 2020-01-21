@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="suite of suites" thread-count="2" parallel="tests">
+<suite name="suite of suites" thread-count="1" parallel="tests">
 	
 
+	<test name="Chrome Suite" enabled="true">
+	<parameter name="browser" value="Chrome" />
+  		<classes>
+    		<class name="com.empirix.cloud.testcases.MyProfile">  		
+    		<methods>
+        			<include name="userTabs" />     		 
+          </methods>
+        	</class>
+         </classes> 
+	</test>
 	
 	
 	<test name="Firefox Suite" enabled="true">
@@ -18,8 +28,8 @@
 	</test>  
 	
 	
-	<test name="Chrome Suite" enabled="true">
-	<parameter name="browser" value="Chrome" />
+	<test name="Edge Suite" enabled="true">
+	<parameter name="browser" value="Edge" />
   		<classes>
     		<class name="com.empirix.cloud.testcases.Login">  		
     		<methods>
@@ -27,5 +37,5 @@
           </methods>
         	</class>
          </classes> 
-	</test>
+	</test> 
 </suite>	

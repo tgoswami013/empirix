@@ -2,11 +2,11 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-01-21T17:39:43.899021Z</date>
-  <millis>1579628383899</millis>
-  <nanos>21000</nanos>
+  <date>2020-01-21T18:20:37.875070Z</date>
+  <millis>1579630837875</millis>
+  <nanos>70000</nanos>
   <sequence>0</sequence>
-  <logger>com.empirix.cloud.testcases.Login</logger>
+  <logger>com.empirix.cloud.testcases.MyProfile</logger>
   <level>CONFIG</level>
   <class>com.empirix.cloud.helper.TestBase</class>
   <method>&lt;init&gt;</method>
@@ -14,35 +14,11 @@
   <message>Configuration done.</message>
 </record>
 <record>
-  <date>2020-01-21T17:39:43.929326Z</date>
-  <millis>1579628383929</millis>
-  <nanos>326000</nanos>
+  <date>2020-01-21T18:20:38.012226Z</date>
+  <millis>1579630838012</millis>
+  <nanos>226000</nanos>
   <sequence>1</sequence>
-  <logger>com.empirix.cloud.testcases.Login</logger>
-  <level>FINE</level>
-  <class>com.empirix.cloud.helper.TestBase</class>
-  <method>&lt;init&gt;</method>
-  <thread>1</thread>
-  <message>Logger Started</message>
-</record>
-<record>
-  <date>2020-01-21T17:39:43.952170Z</date>
-  <millis>1579628383952</millis>
-  <nanos>170000</nanos>
-  <sequence>2</sequence>
-  <logger>com.empirix.cloud.testcases.Login</logger>
-  <level>CONFIG</level>
-  <class>com.empirix.cloud.helper.TestBase</class>
-  <method>&lt;init&gt;</method>
-  <thread>1</thread>
-  <message>Configuration done.</message>
-</record>
-<record>
-  <date>2020-01-21T17:39:43.953206Z</date>
-  <millis>1579628383953</millis>
-  <nanos>206000</nanos>
-  <sequence>3</sequence>
-  <logger>com.empirix.cloud.testcases.Login</logger>
+  <logger>com.empirix.cloud.testcases.MyProfile</logger>
   <level>FINE</level>
   <class>com.empirix.cloud.helper.TestBase</class>
   <method>&lt;init&gt;</method>

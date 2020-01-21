@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="tests" name="Failed suite [suite of suites]" guice-stage="DEVELOPMENT">
-  <parameter name="browser" value="Firefox"/>
-  <test thread-count="2" parallel="tests" name="Firefox Suite(failed)">
+<suite thread-count="1" parallel="tests" name="Failed suite [suite of suites]" guice-stage="DEVELOPMENT">
+  <test thread-count="1" parallel="tests" name="Chrome Suite(failed)">
+    <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="com.empirix.cloud.testcases.Login">
+      <class name="com.empirix.cloud.testcases.MyProfile">
         <methods>
           <include name="befo"/>
           <include name="befMethod"/>
-          <include name="verifyLogin"/>
+          <include name="userTabs"/>
         </methods>
-      </class> <!-- com.empirix.cloud.testcases.Login -->
-    </classes>
-  </test> <!-- Firefox Suite(failed) -->
-  <test thread-count="2" parallel="tests" name="Chrome Suite(failed)">
-    <classes>
-      <class name="com.empirix.cloud.testcases.Login">
-        <methods>
-          <include name="befo"/>
-          <include name="befMethod"/>
-          <include name="verifyLogin"/>
-        </methods>
-      </class> <!-- com.empirix.cloud.testcases.Login -->
+      </class> <!-- com.empirix.cloud.testcases.MyProfile -->
     </classes>
   </test> <!-- Chrome Suite(failed) -->
 </suite> <!-- Failed suite [suite of suites] -->
