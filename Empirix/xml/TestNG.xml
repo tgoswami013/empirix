@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="suite of suites">
-
-
+<suite name="suite of suites" thread-count="2" parallel="tests">
 	
 
-
-	<test name="Event" enabled="true">
+	
+	
+	<test name="Firefox Suite" enabled="true">
+	<parameter name="browser" value="Firefox" />
   		<classes>
-    		<class name="com.empirix.cloud.testcases.MyProfile">
-    		
+    		<class name="com.empirix.cloud.testcases.Login">  		
     		<methods>
- 
-        			<include name="switchLanguage" />     		 
+        			<include name="verifyLogin" />     		 
+          </methods>
+        	</class>
+         </classes> 
+	</test>  
+	
+	
+	<test name="Chrome Suite" enabled="true">
+	<parameter name="browser" value="Chrome" />
+  		<classes>
+    		<class name="com.empirix.cloud.testcases.Login">  		
+    		<methods>
+        			<include name="verifyLogin" />     		 
           </methods>
         	</class>
          </classes> 

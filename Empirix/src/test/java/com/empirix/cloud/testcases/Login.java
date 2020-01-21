@@ -21,7 +21,7 @@ public class Login extends TestBase
 	}
 	
 	@Test
-	public void Login()
+	public void verifyLogin()
 	{
 		logMod.login();
 		Assert.assertTrue(heaMod.myProfileCaret.isDisplayed());

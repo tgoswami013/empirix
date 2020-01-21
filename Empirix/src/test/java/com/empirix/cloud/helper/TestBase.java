@@ -20,6 +20,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.empirix.cloud.util.ConfigUtil;
 
@@ -31,7 +33,7 @@ public class TestBase
 	public static boolean isBrowserOpened = false;
 	String server;
 	public static String platform;
-	public static String browser;
+	public String browser;
 	public static String environment;
 	public static String url;
 	public static WebDriver driver;
@@ -40,24 +42,7 @@ public class TestBase
     public TestBase()
     {
     	LOGGER = Logger.getLogger(this.getClass().getName());
-    }
-	
-	/**
-	 * This will set Driver based on capabilities and configuration
-	 * @author Tarun Goswami
-	 * @since 2020-01-21
-	 * @version 1.1
-	 */
-	public void setDriver() throws MalformedURLException
-	{
-		server = conf.getProperty("Server");
-		browser = conf.getProperty("Browser");
-		environment = conf.getProperty("Environment");		
-		url = conf.getProperty(environment+"_URL");
-		
-		System.out.println(server+browser+environment+url);
-		
-		 Handler consoleHandler = null;
+    	Handler consoleHandler = null;
 	     Handler fileHandler  = null;
 	    try
 	    {
@@ -81,15 +66,30 @@ public class TestBase
 	    {
 	            LOGGER.log(Level.SEVERE, "Error occur in FileHandler.", exception);
 	    }
+    }
+	
+	/**
+	 * This will set Driver based on capabilities and configuration
+	 * @author Tarun Goswami
+	 * @since 2020-01-21
+	 * @version 1.1
+	 */
+	public void setDriver(String browser) throws MalformedURLException
+	{
+		server = conf.getProperty("Server");
+		environment = conf.getProperty("Environment");		
+		url = conf.getProperty(environment+"_URL");
+		
+		System.out.println(server+browser+environment+url);
 	        
 		if(browser.equals("Firefox")) 
 		{
 			if(server.equals("Windows"))
-				System.setProperty("webdriver.chrome.driver", Constants.WINDOWS_CHROME_DRIVER);
+				System.setProperty("webdriver.gecko.driver", Constants.WINDOWS_FIREFOX_DRIVER);
 			else if(server.equals("Linux"))
-				System.setProperty("webdriver.chrome.driver", Constants.LINUX_CHROME_DRIVER);
+				System.setProperty("webdriver.gecko.driver", Constants.LINUX_FIREFOX_DRIVER);
 			else if(server.equals("Mac"))
-				System.setProperty("webdriver.chrome.driver", Constants.MAC_CHROME_DRIVER);
+				System.setProperty("webdriver.gecko.driver", Constants.MAC_FIREFOX_DRIVER);
 			
 			FirefoxOptions options = new FirefoxOptions();
 			driver = new FirefoxDriver();
@@ -109,12 +109,11 @@ public class TestBase
 	        LOGGER.log(Level.FINE, "Browser Open");
 		}
 		
-		
-		
 		if(browser.equals("Edge")) 
 		{
 			System.setProperty("webdriver.chrome.driver", Constants.MAC_CHROME_DRIVER);
 		}
+		
 		driver.get(url);
 		LOGGER.info("Logger Name: "+LOGGER.getName());
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -148,13 +147,14 @@ public class TestBase
 	 * @since 2020-01-21
 	 * @version 1.0
 	 */
-	@BeforeMethod
-	public void befo(ITestContext it) throws MalformedURLException 
+	@BeforeTest
+	@Parameters("browser")
+	public void befo(String browser) throws MalformedURLException 
 	{
 		TestBase base = new TestBase();
 		base.Initialize();
 		LOGGER.log(Level.FINE, "File Intialized");
-		base.setDriver();
+		base.setDriver(browser);
 		LOGGER.log(Level.FINE, "Driver Set");
 	}
 }
