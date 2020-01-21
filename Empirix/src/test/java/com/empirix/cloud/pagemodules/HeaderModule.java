@@ -1,11 +1,16 @@
 package com.empirix.cloud.pagemodules;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HeaderModule 
+import com.empirix.cloud.helper.TestBase;
+
+public class HeaderModule extends TestBase
 {
 	@FindBy(css="span[class='caret']")
 	public  WebElement myProfileCaret;
@@ -18,13 +23,15 @@ public class HeaderModule
 		PageFactory.initElements(driver, this);
 	}
 
-	public void switchLanguage(String language)
+	public void switchLanguage(String language) throws InterruptedException
 	{
-		myProfileCaret.click();
-		
+		myProfileCaret.click();		
 		if(activeLanguageLnk.getText().equals(language))
 		{
-			activeLanguageLnk.click();
+			WebDriverWait wait = new WebDriverWait(driver, 60);
+			WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated((By) activeLanguageLnk));
+			element.click();
+			driver.switchTo().alert().accept();
 		}
 	}
 }

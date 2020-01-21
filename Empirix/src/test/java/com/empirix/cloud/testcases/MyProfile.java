@@ -1,5 +1,7 @@
 package com.empirix.cloud.testcases;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,10 +23,9 @@ public class MyProfile extends TestBase
 	}
 	
 	@Test
-	public void switchLanguage()
-	{
+	public void switchLanguage() throws InterruptedException
+	{	
 		heaMod.switchLanguage("Japanese");
 		heaMod.switchLanguage("English");
 	}
-
 }

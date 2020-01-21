@@ -3,21 +3,17 @@
 
 <suite name="suite of suites">
 
-<listeners>
-	<listener class-name="com.fliplearn.flipapp.helper.Base"/>
-	<listener class-name="com.fliplearn.flipapp.helper.RetryListener"/>	
-	<listener class-name="com.fliplearn.flipapp.report.CustomTestNGReporter" />
-</listeners>
+
 	
 
 
 	<test name="Event" enabled="true">
   		<classes>
-    		<class name="com.fliplearn.flipapp.testcases.Home">
+    		<class name="com.empirix.cloud.testcases.MyProfile">
     		
     		<methods>
  
-        			<include name="noticeboardMore" />     		 
+        			<include name="switchLanguage" />     		 
           </methods>
         	</class>
          </classes> 
