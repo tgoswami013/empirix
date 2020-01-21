@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="suite of suites">
+
+<listeners>
+	<listener class-name="com.fliplearn.flipapp.helper.Base"/>
+	<listener class-name="com.fliplearn.flipapp.helper.RetryListener"/>	
+	<listener class-name="com.fliplearn.flipapp.report.CustomTestNGReporter" />
+</listeners>
+	
+
+
+	<test name="Event" enabled="true">
+  		<classes>
+    		<class name="com.fliplearn.flipapp.testcases.Home">
+    		
+    		<methods>
+ 
+        			<include name="noticeboardMore" />     		 
+          </methods>
+        	</class>
+         </classes> 
+	</test>
+</suite>	
